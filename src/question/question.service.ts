@@ -40,7 +40,7 @@ export class QuestionService {
         }catch(error) {
             throw new HttpException({
                 status: HttpStatus.FORBIDDEN,
-                error: 'question id not found, tru another id',
+                error: 'question id not found, try another id',
               }, HttpStatus.FORBIDDEN, {
                 cause: error
               });
