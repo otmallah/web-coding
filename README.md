@@ -1,73 +1,74 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Your Project Name
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Welcome to your NestJS project! This README provides instructions on setting up and running your application.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Prerequisites
 
-## Description
+Before you begin, ensure you have the following installed on your machine:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Node.js (https://nodejs.org/)
+- npm (Node Package Manager)
+- Docker (https://www.docker.com/)
 
-## Installation
+## Setup
 
-```bash
-$ npm install
-```
+1. Clone the repository:
 
-## Running the app
+    ```bash
+    git clone git@github.com:otmallah/web-coding.git
+    cd web-coding
+    ```
 
-```bash
-# development
-$ npm run start
+2. Install dependencies:
 
-# watch mode
-$ npm run start:dev
+    ```bash
+    npm install
+    ```
 
-# production mode
-$ npm run start:prod
-```
+## Database Migration
 
-## Test
+Ensure that your database is set up and configured. You can use Docker Compose to run a PostgreSQL database for your app.
 
-```bash
-# unit tests
-$ npm run test
+1. Create a `.env` file based on the `.env.example` file.
 
-# e2e tests
-$ npm run test:e2e
+2. Run the database migration:
 
-# test coverage
-$ npm run test:cov
-```
+    ```bash
+    npx prisma migrate save --name init --experimental
+    npx prisma migrate up --experimental
+    ```
 
-## Support
+## Running with Docker Compose
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Use Docker Compose to run your NestJS app and the PostgreSQL database in separate containers.
 
-## Stay in touch
+1. Build the Docker image:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+    ```bash
+    docker-compose build
+    ```
 
-## License
+2. Start the containers:
 
-Nest is [MIT licensed](LICENSE).
+    ```bash
+    docker-compose up
+    ```
+
+3. Access your app at `http://localhost:3000`
+
+4. To stop the containers, press `Ctrl+C`, and run:
+
+    ```bash
+    docker-compose down
+    ```
+
+## Additional Information
+
+- Your NestJS app should now be running at `http://localhost:3000`. Access the app in your web browser.
+- Customize the `.env` file as needed for your application configuration.
+- Explore and modify the code based on your project requirements.
+
+
+- Although I had planned to use a Makefile, time constraints prevented its implementation.
+
+Happy coding!
