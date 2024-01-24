@@ -13,16 +13,16 @@ services:
     networks:
       - db-postgres
 
-  # app:
-  #   build : .
-  #   image: app
-  #   env_file: .env
-  #   ports:
-  #     - "3000:3322"
-  #   networks:
-  #     - db-postgres
-  #   depends_on:
-  #     - dev-db
+  app:
+    build : .
+    image: app
+    env_file: .env
+    ports:
+      - "3000:3322"
+    networks:
+      - db-postgres
+    depends_on:
+      - dev-db
 
 networks:
   db-postgres:
