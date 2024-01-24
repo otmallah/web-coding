@@ -1,4 +1,4 @@
-# Your Project Name
+# web-coding-challenge
 
 Welcome to your NestJS project! This README provides instructions on setting up and running your application.
 
